@@ -7,7 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Sticky Footer Navbar Template · Bootstrap v5.1</title>
+    <title>
+        @RenderSection("title", false)
+    </title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sticky-footer-navbar/">
     <!-- Bootstrap core CSS -->
@@ -37,10 +39,15 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            @Html.ActionLink("Contenido", "Contenido", "Home", null
+                           , new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Otro Contenido", "OtroContenido", "Home", null
+                           , new { @class = "nav-link" })
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled">Disabled</a>
@@ -58,18 +65,31 @@
     <!-- Begin page content -->
     <main class="flex-shrink-0">
         <div class="container">
-            <img src="~/images/batman.jpg"
-                 style="width:50px; height: 50px"/>
+            @if (IsSectionDefined("imagenes"))
+            {
+                //ALGUNA VISTA ESTA ESCRIBIENDO @section
+                @RenderSection("imagenes", false)
+            }
+            else
+            {
+                //CODIGO ESTATICO DEL LAYOUT PARA TODAS
+                //LAS VISTAS QUE NO UTILICEN @section
+                <img src="~/images/batman.jpg"
+                     style="width:100px; height: 100px" />
+            }
+
             <button id="botonmensaje" type="button" class="btn-info">
                 Probar JQuery
             </button>
-            @RenderBody()            
+            @RenderBody()
         </div>
     </main>
 
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
-            <span class="text-muted">Place sticky footer content here.</span>
+            <span class="text-muted">
+                @RenderSection("footer", false)
+            </span>
         </div>
     </footer>
 
