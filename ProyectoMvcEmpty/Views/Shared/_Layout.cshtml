@@ -39,18 +39,28 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
+
                             @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
                         </li>
                         <li class="nav-item">
-                            @Html.ActionLink("Contenido", "Contenido", "Home", null
+                            @Html.ActionLink("Vista Persona", "VistaPersona", "Home", null
                            , new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Home"
+                               asp-action="Contenido"
+                               class="nav-link">
+                                Contenido
+                            </a>
                         </li>
                         <li class="nav-item">
                             @Html.ActionLink("Otro Contenido", "OtroContenido", "Home", null
                            , new { @class = "nav-link" })
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
+                            <a class="nav-link disabled"
+                               asp-controller="Controller"
+                               asp-action="Action">Disabled</a>
                         </li>
                     </ul>
                     <form class="d-flex">
