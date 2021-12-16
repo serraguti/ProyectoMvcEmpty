@@ -1,3 +1,16 @@
-﻿<h1 style="color:blue">
+﻿@section scripts{ 
+    <script>
+        $(document).ready(function () {
+            $("#botonhijo").click(function () {
+                alert("Funcionando en Child");
+            });
+        });
+    </script>
+}
+
+<h1 style="color:blue">
     Bienvenido a casa
 </h1>
+<button type="button" id="botonhijo" class="btn-success">
+    Pulsa y comprueba
+</button>
