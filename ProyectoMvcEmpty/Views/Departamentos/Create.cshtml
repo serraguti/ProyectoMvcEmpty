@@ -1,0 +1,24 @@
+﻿<a asp-controller="Departamentos"
+   asp-action="Index">
+    Volver al listado
+</a>
+
+<h1 style="color:blue">Create</h1>
+
+<form method="post">
+    <label>Id: </label>
+    <input type="number" name="id"
+           class="form-control"/><br/>
+    <label>Nombre departamento: </label>
+    <input type="text" name="nombre"
+           class="form-control"/><br/>
+    <label>Localidad: </label>
+    <input type="text" name="localidad"
+           class="form-control"/><br/>
+    <button type="submit" class="btn-info">
+        Nuevo departamento
+    </button>
+</form>
+<h1>
+    @ViewData["MENSAJE"]
+</h1>

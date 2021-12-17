@@ -51,6 +51,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a asp-controller="Departamentos"
+                               asp-action="Create"
+                               class="nav-link">
+                                Nuevo departamento
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             @Html.ActionLink("Vista Persona", "VistaPersona", "Home", null
                            , new { @class = "nav-link" })
                         </li>

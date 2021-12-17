@@ -8,6 +8,7 @@
             <th>Número</th>
             <th>Nombre</th>
             <th>Localidad</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,18 @@
                     <td>@d.IdDepartamento</td>
                     <td>@d.Nombre</td>
                     <td>@d.Localidad</td>
+                    <td>
+                        <a asp-controller="Departamentos"
+                           asp-action="Details"
+                           asp-route-id="@d.IdDepartamento">
+                            Detalles
+                        </a>
+                        <a asp-controller="Departamentos"
+                           asp-action="Edit" class="btn btn-info"
+                           asp-route-id="@d.IdDepartamento">
+                            Modificar
+                        </a>
+                    </td>
                 </tr>
             }
     </tbody>

@@ -64,5 +64,36 @@ namespace ProyectoMvcEmpty.Data
             this.com.Parameters.Clear();
             return departamento;
         }
+
+        public int InsertDepartamento(int id, String nombre, String localidad)
+        {
+            string sql = "insert into dept values (@id, @nombre, @localidad)";
+            this.com.Parameters.AddWithValue("@id", id);
+            this.com.Parameters.AddWithValue("@nombre", nombre);
+            this.com.Parameters.AddWithValue("@localidad", localidad);
+            this.com.CommandType = System.Data.CommandType.Text;
+            this.com.CommandText = sql;
+            this.cn.Open();
+            int insertados = this.com.ExecuteNonQuery();
+            this.cn.Close();
+            this.com.Parameters.Clear();
+            return insertados;
+        }
+
+        public int UpdateDepartamento(int id, String nombre, String localidad)
+        {
+            string sql = "update dept set dnombre=@nombre, loc=@localidad "
+                + " where dept_no=@id";
+            this.com.Parameters.AddWithValue("@id", id);
+            this.com.Parameters.AddWithValue("@nombre", nombre);
+            this.com.Parameters.AddWithValue("@localidad", localidad);
+            this.com.CommandType = System.Data.CommandType.Text;
+            this.com.CommandText = sql;
+            this.cn.Open();
+            int results = this.com.ExecuteNonQuery();
+            this.cn.Close();
+            this.com.Parameters.Clear();
+            return results;
+        }
     }
 }
