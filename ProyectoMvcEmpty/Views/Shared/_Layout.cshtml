@@ -44,6 +44,13 @@
                             @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
                         </li>
                         <li class="nav-item">
+                            <a asp-controller="Departamentos"
+                               asp-action="Index"
+                               class="nav-link">
+                                Departamentos
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             @Html.ActionLink("Vista Persona", "VistaPersona", "Home", null
                            , new { @class = "nav-link" })
                         </li>
@@ -80,6 +87,7 @@
     <!-- Begin page content -->
     <main class="flex-shrink-0">
         <div class="container">
+            @RenderBody()
             @if (IsSectionDefined("imagenes"))
             {
                 //ALGUNA VISTA ESTA ESCRIBIENDO @section
@@ -96,7 +104,7 @@
             <button id="botonmensaje" type="button" class="btn-info">
                 Probar JQuery
             </button>
-            @RenderBody()
+
         </div>
     </main>
 
